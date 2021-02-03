@@ -1,0 +1,183 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+
+        <section id="" class="text-white tm-font-big  infinite">
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner bg-image">
+          <div class="bg-text">
+            <h2 class="tm-hero-title ">VAIDYAs</h2>
+            <p class="tm-hero-subtitle">
+              Connecting you to Doctors
+              <br>Book appointments hassle-free and lot more 
+            </p>
+
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                    <a href="{% url 'patientregister' %}" style="color: white">
+                    <div class="btn btn-primary  text-center mx-auto m-2">  Register as Patient</div></a>
+                  </div>
+        
+                  <div class="col-md-6">
+                    <a href="{% url 'doctorregister' %}"style="color: white">
+                      <div class="btn btn-primary  text-center mx-auto m-2">Register as Doctor</div></a>
+                  </div>
+              </div>
+          </div>
+        </div>
+        </div>        
+      </div>
+    </section>
+
+    <section id="whatwedo" class="tm-section-pad-top">
+      
+      <div class="container">
+
+            <div class="row tm-content-box"><!-- first row -->
+                <div class="col-lg-12 col-xl-12">
+                    <div class="tm-intro-text-container">
+                        <h2 class="tm-text-primary mb-4 tm-section-title">What We Do</h2>
+                        <p class="mb-4 tm-intro-text">
+                          We make your life hassle-free. You can use our service to book an appointment with a doctor in your location while sitting in your home. We are driven by the spark to help you and bring doctors from your locality on to our platform for the greater good of humanity is one of our prime motive. Whether you are a doctor or a patient in need, do register in the website to explore a completely new world of tech.</p>
+                    </div>
+                </div>
+
+            </div><!-- first row -->
+            
+            
+      
+    </section>
+    
+    <section id="testimonials" class="tm-section-pad-top tm-parallax-2">      
+              <div class="container tm-testimonials-content testimonials-glass">
+        <div class="row">
+          <div class="col-lg-12 tm-content-box">
+            <h2 class=" text-center mb-4 tm-section-title">Testimonials</h2>
+            <p class="mx-auto tm-section-desc text-center">
+                Have a look what our users feel about the platform!!
+              </p>
+            <div class="mx-auto tm-gallery-container tm-gallery-container-2">
+              <div class="tm-testimonials-carousel">
+                <figure class="tm-testimonial-item contact-glass p-2">
+                  <img src="{% static 'img/testimonial-img-01.jpg' %}" alt="Image" class="img-fluid mx-auto">
+                  <blockquote class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
+                  <figcaption>Dr. Riya (Surgeon)</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item contact-glass p-2">
+                  <img src="{% static 'img/testimonial-img-02.jpg' %}" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
+                  <figcaption>Mr. Shantanu (Mumbai)</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item contact-glass p-2">
+                  <img src="{% static 'img/testimonial-img-03.jpg' %}" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
+                  <figcaption>Ms. Ayesha (Cardiologist)</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item contact-glass p-2">
+                  <img src="{% static 'img/testimonial-img-04.jpg' %}" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
+                  <figcaption>Oliva Htoo (Delhi)</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tm-bg-overlay"></div>
+    </section>
+    
+    
+    <!-- Contact -->
+    <section id="contact" class="tm-section-pad-top tm-parallax-2">
+    
+      <div class="container tm-container-contact contact-glass mb-4">
+        
+        <div class="row">
+            
+            <div class="text-center col-12">
+                <h2 class="tm-section-title mb-4">Contact Us</h2>
+                <p class="mb-5">
+                  Feel free to let us know your comments. Any suggestions are welcome whole-heartedly.
+                </p><br>
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+              <form action="" method="get">
+                <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
+                <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
+                <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
+                <button type="submit" class="btn btn-primary submit m-2">Submit</button>
+              </form>
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+
+                <div class="contact-item">
+                  <a rel="nofollow" href="" class="item-link">
+                      <i class="far fa-2x fa-comment mr-4"></i>
+                      <span class="mb-0">Chat Online</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="mailto:gjha@iitr.ac.in" class="item-link">
+                      <i class="far fa-2x fa-envelope mr-4"></i>
+                      <span class="mb-0">mail@company.com</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="https://www.google.com/maps" class="item-link">
+                      <i class="fas fa-2x fa-map-marker-alt mr-4"></i>
+                      <span class="mb-0">Our Location</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="tel:9955117672" class="item-link">
+                      <i class="fas fa-2x fa-phone-square mr-4"></i>
+                      <span class="mb-0">255-662-5566</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">&nbsp;</div>
+            
+            </div>
+            
+            
+        </div><!-- row ending -->
+        <br>
+      </div>
+
+      	<footer class="text-center small tm-footer">
+          <p class="mb-0">
+          Made with ❤ by <a href="">Gautam
+        </footer>
+        <hr>
+
+    </section>
+{% endblock %}

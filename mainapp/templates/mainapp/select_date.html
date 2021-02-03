@@ -1,0 +1,123 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_tags %}
+{% load get_date from custom_tags %}
+<br>
+<link rel="stylesheet" type="text/css" href="{% static 'css/slot_book.css' %}">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+
+
+<form action="/date_selected_doc/" method='POST'>
+	{% csrf_token %}<!-- 
+	<input type="radio" id="abc" name="doctor"  value="{{doc.id}}" checked> -->
+<div class="container">
+	<!-- <div class="col-12 bg-info text-justify"> -->
+	<h1>Choose a Date to Proceed</h1>
+	
+<!-- </div> -->
+<br>
+	<div class="row">
+			<div class="col-4 ">
+                    <input type="radio" id="control_01" name="date"  value="{{x | get_date:0 |date:'Y-m-d'}}">
+                    <label for="control_01" class="btn btn-outline-info btn-block">
+					    	<p>{{x}}</p>
+					</label>
+			</div>
+			<div class="col-4 ">
+                    <input type="radio" id="control_02" name="date"  value="{{x | get_date:1 |date:'Y-m-d'}}" required >
+                    <label for="control_02" class="btn btn-outline-info btn-block">
+
+					    	<p>{{x | get_date:1}}</p>
+					</label>
+		</div>
+		<div class="col-4 ">
+                    <input type="radio" id="control_03" name="date"  value="{{x | get_date:2 |date:'Y-m-d'}}" >
+                    <label for="control_03" class="btn btn-outline-info btn-block">
+					    
+					    <p>{{x | get_date:2}}</p>
+					</label>
+			</div>
+		</div>
+		<div class="row">
+		<div class="col-4 ">
+                    <input type="radio" id="control_04" name="date"  value="{{x | get_date:3 |date:'Y-m-d'}}" >
+                    <label for="control_04" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:3}}</p>
+					</label>
+			</div>
+		<div class="col-4 ">
+                    <input type="radio" id="control_05" name="date"  value="{{x | get_date:4 |date:'Y-m-d'}}" >
+                    <label for="control_05" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:4}}</p>
+					</label>
+			</div>
+			<div class="col-4 ">
+                    <input type="radio" id="control_06" name="date"  value="{{x | get_date:5 |date:'Y-m-d'}}" >
+                    <label for="control_06" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:5}}</p>
+					</label>
+			</div>
+
+	</div>
+	<div class="row">
+		<div class="col-4 ">
+                    <input type="radio" id="control_07" name="date"  value="{{x | get_date:6 |date:'Y-m-d'}}" >
+                    <label for="control_07" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:6}}</p>
+					</label>
+			</div>
+		<div class="col-4 ">
+                    <input type="radio" id="control_08" name="date"  value="{{x | get_date:7 |date:'Y-m-d'}}" >
+                    <label for="control_08" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:7}}</p>
+					</label>
+			</div>
+			<div class="col-4 ">
+                    <input type="radio" id="control_09" name="date"  value="{{x | get_date:8 |date:'Y-m-d'}}" >
+                    <label for="control_09" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:8}}</p>
+					</label>
+			</div>
+
+	</div>
+	<div class="row">
+		<div class="col-4 ">
+                    <input type="radio" id="control_10" name="date"  value="{{x | get_date:9 |date:'Y-m-d'}}" >
+                    <label for="control_10" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:9}}</p>
+					</label>
+			</div>
+		<div class="col-4 ">
+                    <input type="radio" id="control_11" name="date"  value="{{x | get_date:10 |date:'Y-m-d'}}" >
+                    <label for="control_11" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:10}}</p>
+					</label>
+			</div>
+			<div class="col-4 ">
+                    <input type="radio" id="control_12" name="date"  value="{{x | get_date:11 |date:'Y-m-d'}}" >
+                    <label for="control_12" class="btn btn-outline-info btn-block">
+					    <!-- <h2>Pfft</h2> -->
+					    <p>{{x | get_date:11}}</p>
+					</label>
+			</div>
+
+	</div>
+	<br>
+	<input type="submit" class="btn btn-block btn-outline-primary" value="Submit">
+</div>
+
+
+
+</form>
+{% endblock %}

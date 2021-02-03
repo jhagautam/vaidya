@@ -1,0 +1,93 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_tags %}
+{% load get_date from custom_tags %}
+{% load doctor_name from custom_tags %}
+<br>
+<link rel="stylesheet" type="text/css" href="{% static 'css/slot_book.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/confirm_booking.css' %}">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+
+
+
+
+
+<form action="/confirm_booking_doc/" method='POST'>
+	{% csrf_token %}
+<input type="radio" id="abc" name="patient"  value="3" checked>
+<input type="radio" id="abc" name="doctor"  value="{{user.id}}" checked>
+<input type="radio" id="abc" name="date"  value="{{booking_date}}" checked>
+
+
+<input type="radio" id="abc" name="time"  value="{{time_booked}}" checked>
+
+<input type="radio" id="abc" name="booked_by_doctor"  value="True" checked>
+<!-- <a href="#myModal" class="" data-toggle="modal"> <input type="submit" id='submitbtn' class="btn btn-block btn-success" onclick='f()' value="Submit"></a> -->
+
+<div class="container">
+  <div class="row flex-items-xs-middle flex-items-xs-center d-flex justify-content-center">
+
+    <!-- Table #1  -->
+    <div class="col-xs-12 col-lg-8 ">
+      <div class="card text-xs-center ">
+        <div class="card-header d-flex justify-content-center">
+          <h2 class="-2">Confirm<span class="period">Booking</span></h2>
+        </div>
+        <div class="card-body">
+          
+          <ul class="list-group">
+            <li class="list-group-item">Date- {{booking_date}}</li>
+            <li class="list-group-item">Time- {{time_booked}}</li>
+            
+          </ul>
+          <!-- <a href="#" class="btn btn-block btn-success mt-2">Confirm</a> -->
+          <input type="submit" value="Confirm" class="btn btn-block btn-success mt-2">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+
+<div class="container" id='aftersubmit' style="display: none;">
+	<div class="row">
+		<div class="col-12">
+			<a href="{ url 'login_redirect_view' }"><button class='btn btn-info btn-block'>Go To Home Page</button></a>
+		</div>
+	</div>
+</div>
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>				
+				<h4 class="modal-title">Awesome!</h4>	
+			</div>
+			<div class="modal-body">
+				<p class="text-center">Your booking has been confirmed. Check your email for detials.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>     
+<script type="text/javascript">
+	function f(){
+		var x=document.getElementById('submitbtn');
+		var y=document.getElementById('aftersubmit');
+		x.style.display= "none";
+    	y.style.display = "block";
+	}
+</script>
+
+
+{% endblock %}

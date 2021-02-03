@@ -1,0 +1,26 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+
+<h2>Are you sure you want to delete the Appointment?</h2>
+<br>
+<form action="{% url 'delete_appointment' item.id %}" method="POST">
+	{% csrf_token %}
+
+	<a href="{% url 'login_redirect_view' %}"><div class="btn btn-success mx-auto m-1">Cancel</div></a>
+	<input class="btn btn-danger mx-auto m-1" type="submit" name="Confirm">
+</form>
+
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+{% endblock %}

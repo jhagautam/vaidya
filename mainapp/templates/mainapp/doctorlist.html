@@ -1,0 +1,40 @@
+{% extends 'mainapp/booking.html' %}
+{% load static %}
+{% block tablecontent %}
+{% load custom_tags %}
+{% load get_item from custom_tags %}
+	<div class="row">
+		<div class="col-12">
+		<table class="table table-image">
+		  <thead>
+			<tr>
+			  <th scope="col">Sr No</th>
+			  <th scope="col">Picture</th>
+			  <th scope="col">Doctors' Name</th>
+			  <th scope="col">Specialisation</th>
+			  <th scope="col"></th>
+			  <th scope="col"></th>
+			</tr>
+		  </thead>
+		  <tbody id='table_body'>
+			{% for doc in q %}
+			<tr>
+			
+			  <td>{{doc.user.id}}</td>
+			  <td class="w-25">
+				  <img src="{% static 'img/testimonial-img-02.jpg' %}" class="img-fluid img-thumbnail" alt="Sheep">
+			  </td>
+			  <td>{{doc.user.name}}</td>
+			  <td>{{doc.specialisation}}</td>
+			  <td class="btn btn-sm btn-info">View</td>
+			  <td class="btn btn-sm btn-outline-success"><a href="{% url 'slot_book' doc.user.id %}"> Book </a></td>
+			</tr>
+			{% endfor %}
+		  </tbody>
+		</table>   
+	</div>
+  </div>
+</div>
+{% endblock %}
+
+

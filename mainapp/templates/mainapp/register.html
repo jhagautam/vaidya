@@ -1,0 +1,33 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style type="text/css">
+</style>
+<br>
+<div class="container contact-glass testimonials-glass">
+    <div class="row">
+        <div class="col-md-12">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+
+            <div class="contact-form">
+                <fieldset>{{form|crispy}}</fieldset>
+                <br>
+                <div class="form-group">        
+                  <!-- <div class="col-sm-offset-0 col-sm-10"> -->
+                    <button type="submit" class="btn btn-info">Submit</button>
+                  </div>
+                <!-- </div> -->
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

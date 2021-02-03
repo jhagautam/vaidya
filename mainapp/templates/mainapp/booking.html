@@ -1,0 +1,73 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_tags %}
+{% load get_item from custom_tags %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<div class="container">
+  <div class="row">
+	<div class="col-12">
+		<nav class="navbar navbar-light bg-light justify-content-between">
+		  <a class="navbar-brand">Filter</a>
+		  <form class="form-inline" action="/update_doctor_list/" method="POST" id="submit_bookmark">
+			{% csrf_token %}
+			<label>Select City- </label>
+
+			<select class="form-control mr-sm-2" name="city" >
+				{% for city in cities %}
+				<option>{{city | get_item:'user__city'}}</option>
+				{% endfor %}
+			</select>
+			<label>Select Specialisation- </label>
+			<select class="form-control mr-sm-2" name="specialisation_of_doc">
+				{% for s in specialisations %}
+				<option>{{s | get_item:'specialisation'}}</option>
+				{% endfor %}	
+			</select>
+			<button class="button btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Search</button>
+		  </form>
+		</nav>
+	</div>
+</div>
+
+
+		<br>
+{% block tablecontent %}
+<div class="row">
+		<div class="col-12">
+		<table class="table table-image">
+		  <thead>
+			<tr>
+			  <th scope="col">Sr No</th>
+			  <th scope="col">Picture</th>
+			  <th scope="col">Doctors' Name</th>
+			  <th scope="col">Specialisation</th>
+			  <th scope="col">City</th>
+			  <th scope="col"></th>
+			</tr>
+		  </thead>
+		  <tbody id='table_body'>
+			{% for doc in doctor %}
+			<tr>
+			
+			  <td>{{ forloop.counter}}</td>
+			  <td class="w-25">
+				  <img src="{% static 'img/testimonial-img-02.jpg' %}" class="img-fluid img-thumbnail" alt="Sheep">
+			  </td>
+			  <td>{{doc.user.name}}</td>
+			  <td>{{doc.specialisation}}</td>
+			  <td>{{doc.user.city}} </td>
+			  <td class="btn btn-sm btn-outline-success"><a href="{% url 'slot_book' doc.user.id %}"> Book </a></td>
+			</tr>
+			{% endfor %}
+		  </tbody>
+		</table>   
+	</div>
+  </div>
+</div>
+{% endblock %}
+
+{% endblock %}
+
+

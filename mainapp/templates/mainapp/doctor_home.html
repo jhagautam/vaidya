@@ -1,0 +1,93 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_tags %}
+{% load compare from custom_tags %}
+<style type="text/css">
+	body{
+		background-color: #28223F;
+	}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/patient_home.css' %}">
+
+<div class="row ">
+    <div class="container">
+        <div class='col-12'>
+<br>
+<div class="card" id='myBox6'>
+                <div class="card-header ">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 image_box ">
+                            <img class="float-left" src="{{user.pic.url}}" alt="user" />
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <h3 class="float-">Dr. {{user.name}}</h3>
+                            <h6 class="float-">{{user.city}}</h6>
+                        </div>
+                    </div> 
+                </div>
+                <div class="card-body">
+                    <div class="buttons">
+                        <a href="{% url 'booking_by_doc' %}">
+                        <button class="btn btn-lg btn-primary mx-auto m-2">
+                            Review Appointments
+                        </button>
+                        </a>
+                        <a href="{% url 'doc_edit_profile' %}">
+                        <button class="btn btn-lg btn-warning mx-auto m-2 ">
+                            Edit Profile
+                        </button>
+                    </a>
+                    </div>  
+                    <br>
+                    <div class="">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Doctor Name</th>
+                                                            <th>Specialisation</th>
+                                                            <th>Booking Date</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for appointment in appointments %}
+                                                        <tr>
+                                                            <td>{{appointment.patient}}</td>
+                                                            <td>{{appointment.doctor.specialisation}}</td>
+                                                            <td>{{appointment.date}} </td>
+                                                            {% if today|compare:appointment.date %}
+                                                            <td><label class="badge badge-warning">Pending</label></td>
+
+                                                            
+                                                            <td class="btn btn-sm btn-danger"><a href="{% url 'delete_appointment' appointment.id %}">Delete </a></td>
+
+                                                            {% else %}
+                                                            <td><label class="badge badge-primary">Visited</label></td>
+                                                            <td class="btn btn-sm btn-info">Details</td>
+                                                            {% endif %}
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+</div></div></div>
+<script type="text/javascript">
+    function confirm_delete(){
+        alert('You sure You want to continue')
+    }
+
+</script>
+{% endblock %}

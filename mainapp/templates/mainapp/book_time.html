@@ -1,0 +1,165 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_tags %}
+{% load get_date from custom_tags %}
+{% load check_slot from custom_tags %}
+<br>
+<link rel="stylesheet" type="text/css" href="{% static 'css/slot_book.css' %}">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="static 'css/book_time.css' ">
+<form action="/time_selected/" method='POST'>
+	{% csrf_token %}
+	<input type="radio" id="abc" name="patient"  value="{{user.id}}" checked>
+	<input type="radio" id="abc" name="doctor"  value="{{doctor_id}}" checked>
+
+<input type="radio" id="abc" name="date"  value="{{booking_date}}" checked>
+
+
+
+<div class="container">
+	<h1>Now Choose a Time</h1>
+	<br>
+	<div class="row">
+			<div class="col-4 ">
+                    {% if q|check_slot:'10:00:00' %}
+                    <input type="radio" id="control_01" name="time"  value="10:00:00" disabled required>
+                    <label for="control_01" class="btn btn-danger btn-block disable-label" >
+					    <p>10 AM</p>
+					    <!-- <p>Slot Unavailable</p> -->
+					</label>
+                    {% else %}
+                    <input type="radio" id="control_01" name="time"  value="10:00:00" checked>
+                    <label for="control_01" class="btn btn-outline-info btn-block">
+					    <p>10 AM</p>
+					</label>
+					{% endif %}
+			</div>
+		<div class="col-4 ">
+			{% if q|check_slot:'11:00:00' %}
+                    <input type="radio" id="control_02" name="time"  value="11:00:00" disabled>
+                    
+                    <label for="control_02" class="btn btn-danger btn-block disable-label ">
+					    <p>11 AM</p>
+
+					</label>
+                    {% else %}
+                    <input type="radio" id="control_02" name="time"  value="11:00:00" >
+                    <label for="control_02" class="btn btn-outline-info btn-block">
+					    <p>11 AM</p>
+					</label>
+					{% endif %}
+		</div>
+		<div class="col-4 ">
+			{% if q|check_slot:'12:00:00' %}
+                    <input type="radio" id="control_03" name="time"  value="12:00:00" disabled>
+                    
+                    <label for="control_03" class="btn btn-danger btn-block disable-label">
+					    <p>12 PM</p>
+					</label>
+                    {% else %}
+                    <input type="radio" id="control_03" name="time"  value="12:00:00" >
+                    <label for="control_03" class="btn btn-outline-info btn-block">
+					    <p>12 PM</p>
+					</label>
+					{% endif %}
+			</div>
+		</div>
+		<div class="row">
+		<div class="col-4 ">
+			{% if q|check_slot:'13:00:00' %}
+                    <input type="radio" id="control_04" name="time"  value="13:00:00" disabled>
+                    
+                    <label for="control_04" class="btn btn-danger btn-block disable-label">
+					    <p>1 PM</p>
+					</label>
+                    {% else %}
+                     <input type="radio" id="control_04" name="time"  value="13:00:00" >
+                    <label for="control_04" class="btn btn-outline-info btn-block">
+					    <p>1 PM</p>
+					</label>
+					{% endif %}
+			</div>
+		<div class="col-4 ">
+			{% if q|check_slot:'14:00:00' %}
+                    <input type="radio" id="control_05" name="time"  value="14:00:00" disabled>
+                    
+                    <label for="control_05" class="btn btn-danger btn-block disable-label">
+					    <p>2 PM</p>
+					</label>
+                    {% else %}
+                    <input type="radio" id="control_05" name="time"  value="14:00:00" >
+                    <label for="control_05" class="btn btn-outline-info btn-block">
+					    <p>2 PM</p>
+					</label>
+					{% endif %}
+			</div>
+			<div class="col-4 ">
+				{% if q|check_slot:'15:00:00' %}
+                    <input type="radio" id="control_06" name="time"  value="15:00:00" disabled>
+                    
+                    <label for="control_06" class="btn btn-danger btn-block disable-label">
+					    <p>3 PM</p>
+					</label>
+                    {% else %}
+                    <input type="radio" id="control_06" name="time"  value="15:00:00" >
+                    <label for="control_06" class="btn btn-outline-info btn-block">
+					    <p>3 PM</p>
+					</label>
+					{% endif %}
+			</div>
+
+	</div>
+	<div class="row">
+		<div class="col-4 ">
+			{% if q|check_slot:'16:00:00' %}
+                    <input type="radio" id="control_07" name="time"  value="16:00:00" disabled>
+                    
+                    <label for="control_07" class="btn btn-danger btn-block disable-label">
+					    <p>4 PM</p>
+					</label>
+                    {% else %}
+                    <input type="radio" id="control_07" name="time"  value="16:00:00" >
+                    <label for="control_07" class="btn btn-outline-info btn-block" >
+					    <p>4 PM</p>
+					</label>
+					{% endif %}
+			</div>
+		<div class="col-4 ">
+			{% if q|check_slot:'17:00:00' %}
+                    <input type="radio" id="control_08" name="time"  value="17:00:00" disabled>
+                    
+                    <label for="control_08" class="btn btn-danger btn-block disable-label">
+					    <p>5 PM</p>
+					</label>
+                    {% else %}
+                    <input type="radio" id="control_08" name="time"  value="17:00:00" >
+                    <label for="control_08" class="btn btn-outline-info btn-block">
+					    <p>5 PM</p>
+					</label>
+					{% endif %}
+			</div>
+			<div class="col-4 ">
+				{% if q|check_slot:'18:00:00' %}
+                    <input type="radio" id="control_09" name="time"  value="18:00:00" disabled>
+                    
+                    <label for="control_09" class="btn btn-danger btn-block disable-label disable-label">
+					    <p>6 PM</p>
+					</label>
+                    {% else %}
+                    <input type="radio" id="control_09" name="time"  value="18:00:00"  >
+                    <label for="control_09" class="btn btn-outline-info btn-block">
+					    <p>6 PM</p>
+					</label>
+					{% endif %}
+			</div>
+
+	</div>
+	<br>
+	<input type="submit" class="btn btn-block btn-outline-primary" value="Submit">
+</div>
+
+
+
+</form>
+{% endblock %}

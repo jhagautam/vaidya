@@ -1,0 +1,23 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/patient_home.css' %}">
+<!-- <block></block> -->
+<br>
+<div class="container format-css contact-glass">
+            <form action="" method="POST">
+                {% csrf_token %}
+
+            <div class="contact-form">
+                <fieldset>{{form|crispy}}</fieldset>
+                <br>
+                <div class="form-group ">        
+                  
+                    <button type="submit" class="btn block btn-info">Login</button>
+                  <!-- </div> -->
+                </div>
+            </div>
+        </form>
+</div>
+{% endblock %}

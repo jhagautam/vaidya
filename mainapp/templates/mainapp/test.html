@@ -1,0 +1,40 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_tags %}
+{% load get_date from custom_tags %}
+
+
+{% load crispy_forms_tags %}
+
+<div class="container contact">
+  <div class="row">
+    
+    <div class="col-md-12">
+
+    <form action="" method="POST">
+            {% csrf_token %}
+
+        <div class="contact-form" style="color: black">
+            <fieldset>{{form|crispy}}</fieldset>
+        </div>
+        
+        <div class="form-group">        
+          <div class="col-sm col-sm-10">
+            <button type="submit" class="btn btn-secondary" name = "add_item">Add Item</button>
+            <button type="submit" class="btn btn-secondary" name = "save">Save</button>
+          </div>
+        </div>
+        </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
