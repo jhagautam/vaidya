@@ -19,7 +19,7 @@ class patientRegistrationForm(UserCreationForm):
 	city=forms.CharField(max_length=30)
 	district=forms.CharField(max_length=30)
 	state=forms.CharField(max_length=30)
-	pic=forms.ImageField()
+# 	pic=forms.ImageField()
 
 	class Meta(UserCreationForm.Meta):
 		model =User
@@ -58,7 +58,7 @@ class doctorRegistrationForm(UserCreationForm):
 	city=forms.CharField(max_length=30)
 	district=forms.CharField(max_length=30)
 	state=forms.CharField(max_length=30)
-	pic=forms.ImageField()
+# 	pic=forms.ImageField()
 	license=forms.IntegerField()
 	specialisation=forms.ChoiceField(choices = SPECIALISATION) 
 
